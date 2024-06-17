@@ -1,0 +1,17 @@
+name: Hello World Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'the Actions owner name'
+        required: true
+        default: ''
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest # git.pepabo.comで動かすときはnormalに書き換えてください
+    
+    steps:
+      - name: Echo Hello World
+        run: echo "Hello World by ${{ github.event.inputs.name }}"
