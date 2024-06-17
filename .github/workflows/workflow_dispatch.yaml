@@ -2,16 +2,18 @@ name: Hello World Workflow
 
 on:
   workflow_dispatch:
-    inputs:
+  #手動実行
+    inputs: # 入力を定義
       name:
-        description: 'the Actions owner name'
+        description: 'the Actions owner name' # この入力の説明
         required: true
         default: ''
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest # git.pepabo.comで動かすときはnormalに書き換えてください
+    # ジョブのステップをubuntu-latestで実行
     
     steps:
       - name: Echo Hello World
-        run: echo "Hello World by ${{ github.event.inputs.name }}"
+        run: echo "Hello World by ${{ github.event.inputs.name }}" # 入力を参照する
