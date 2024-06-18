@@ -18,15 +18,8 @@ jobs:
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
 
-      - name: Get the current version
-        id: vars
-        run: |
-          VERSION=$(cat VERSION.txt)
-          echo "::set-output name=version::$VERSION"
-
       - name: Create and push tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git tag -a "v${{ steps.vars.outputs.version }}" -m "Release version ${{ steps.vars.outputs.version }}"
-          git push origin "v${{ steps.vars.outputs.version }}"
+          git tag -a "release" -m "Release されましたよ！"
